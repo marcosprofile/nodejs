@@ -10,8 +10,20 @@ app.get("/rota", function(req, res) {
     res.send("Esta é minha primeira rota")
 })
 
-app.get("/rota2", function(req, res) {
-    res.send("Esta é minha segunda rota")
+app.get("/blog/:artigo?", function(req, res) {
+    let artigo = req.params.artigo
+
+    if(artigo) {
+        res.send(`<h2>Artigo: ${artigo}</h2>`)
+    } else {
+        res.send("<h2>Bem-vindo ao meu blog</h2>")
+    }
+})
+
+app.get("/hello/:nome/:empresa", function(req, res) {
+    let nome = req.params.nome
+    let empresa = req.params.empresa
+    res.send(`<h1>Olá ${nome}, da empresa ${empresa}</h1>`)
 })
 
 app.listen(port, function(erro) {

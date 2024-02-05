@@ -20,6 +20,18 @@ app.get("/blog/:artigo?", function(req, res) {
     }
 })
 
+// Query Params: menos utilizado no mercado
+app.get("/canal/youtube", function(req, res) {
+    let canal = req.query["canal"]
+
+    if(canal) {
+        res.send(canal)
+    } else {
+        res.send("Nenhum canal fornecido!")
+    }
+})
+
+// Params: mais utilizado no mercado
 app.get("/hello/:nome/:empresa", function(req, res) {
     let nome = req.params.nome
     let empresa = req.params.empresa
